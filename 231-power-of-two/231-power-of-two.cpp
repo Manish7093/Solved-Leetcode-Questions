@@ -11,8 +11,19 @@ public:
              return true;
         }
         return false;*/
+    
+        //TC-O(1)
+     /*   if(n<=0)
+            return false;
+        return ((n&(n-1))==0);*/
+        
         if(n<=0)
             return false;
-        return ((n&(n-1))==0);
+        int rsmb=n&(-n);
+        n=n-rsmb;
+        if(n==0)
+            return true;
+        else
+            return false;
     }
 };
