@@ -1,7 +1,8 @@
 class Solution {
 public:
     bool isPowerOfTwo(int n) {
-      /*  double  res=n;
+     //TC-O(logn)
+        /*  double  res=n;
         if(n==1)
             return true;
         while(res>=1){
@@ -17,13 +18,23 @@ public:
             return false;
         return ((n&(n-1))==0);*/
         
-        if(n<=0)
+     //TC -O(1)
+       /* if(n<=0)
             return false;
         int rsmb=n&(-n);
         n=n-rsmb;
         if(n==0)
             return true;
         else
+            return false;*/
+        //Tc-O(logn)
+        if(n<=0)
             return false;
+        while(n%2==0){
+            n=n/2;
+        }
+        return n==1;
+            
+        
     }
 };
