@@ -10,14 +10,22 @@ public:
         return n;*/
         
     //TC-O(n) Sc-O(n)
-        int n=nums.size();
+     /*   int n=nums.size();
         unordered_map<int,int>mpp;
         for(int i=0;i<n;i++)
             mpp[nums[i]]+=1;
         for(int i=0;i<n;i++)
             if(mpp[i]==0)
                 return i;
-        return n;
+        return n;*/
+        int n=nums.size();
+        int sum{n};
+        for(int i=0;i<n;i++)
+            sum=sum+i;
+        for(int i=0;i<n;i++)
+            sum=sum-nums[i];
+        return sum;
+        
         
     }
 };
