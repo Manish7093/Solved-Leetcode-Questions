@@ -18,14 +18,22 @@ public:
             if(mpp[i]==0)
                 return i;
         return n;*/
-        int n=nums.size();
+    
+    //TC-O(n) SC-O(1) take total sum from 0 to n and then subtract each ele from arr at     //we get missing number
+        /*   int n=nums.size();
         int sum{n};
         for(int i=0;i<n;i++)
             sum=sum+i;
         for(int i=0;i<n;i++)
             sum=sum-nums[i];
         return sum;
-        
+        */
+    //TC
+        int n=nums.size();
+        int xr=0,i=0;
+        for( i=0;i<n;i++)
+            xr=xr^nums[i]^i;
+        return xr^i;
         
     }
 };
