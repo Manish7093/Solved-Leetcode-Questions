@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int firstpos(vector<int>nums,int target){
+/*  int firstpos(vector<int>nums,int target){
         int fpos=-1;
         int start=0,end=nums.size()-1;
         while(start<=end){
@@ -41,6 +41,42 @@ public:
        int lpos= lastpos(nums, target);
        res[0]=fpos;
        res[1]=lpos;
-       return res; 
+       return res; */
+    
+   int BSpos(vector<int>nums,int pos,int target){
+        int fpos=-1;
+        int start=0,end=nums.size()-1;
+        while(start<=end){
+            int mid=start+(end-start)/2;
+            if(target==nums[mid]){
+              if(pos==0){
+                fpos=mid;    
+                end=mid-1;
+              }
+              else{
+                fpos=mid;    
+                start=mid+1;
+              }
+                
+          }  
+            else if(target>nums[mid])
+                start=mid+1;
+            else
+                end=mid-1;
+        }
+        return fpos;
+    }
+    vector<int> searchRange(vector<int>& nums, int target) {
+       vector<int>res(2,-1);
+        int n=nums.size();
+       if(n==0)
+           return res;
+       res[0]= BSpos(nums,0, target);
+       res[1]= BSpos(nums,1, target);
+       return res;  
+    
+    
+    
+    
     }
 };
