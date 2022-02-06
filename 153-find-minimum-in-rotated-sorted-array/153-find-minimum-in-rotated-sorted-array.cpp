@@ -12,8 +12,8 @@ public:
  //TC-O(logn)
         int n=nums.size();
         int start=0,end=n-1;
-        if(nums[start]<=nums[end])
-            return nums[start];
+      /*  if(nums[start]<=nums[end])
+            return nums[start];*/
         while(start<=end){
             if(nums[start]<nums[end]) return nums[start];
             int mid=start+(end-start)/2;
