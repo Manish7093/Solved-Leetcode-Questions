@@ -34,11 +34,10 @@ public:
     int search(vector<int>& nums, int target) {
         int n=nums.size();
         int sm=small(nums);
-        int fs=binarys(nums,0,sm-1,target);
-        int ls=binarys(nums,sm,n-1,target);
-        if(fs>ls)
-            return fs;
+        if(target>nums[n-1])
+           return binarys(nums,0,sm-1,target);
         else
-            return ls;
+           return binarys(nums,sm,n-1,target);
+        
     }
 };
