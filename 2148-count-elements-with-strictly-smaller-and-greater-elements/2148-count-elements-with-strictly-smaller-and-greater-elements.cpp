@@ -1,7 +1,8 @@
 class Solution {
 public:
     int countElements(vector<int>& nums) {
-       int n=nums.size();
+     //TC-O(nlogn)
+        /* int n=nums.size();
         sort(nums.begin(),nums.end());
         int ans=nums[0];
         int count{0};
@@ -10,6 +11,20 @@ public:
                count++;
             
         }
+        return count;*/
+        int n=nums.size();
+        int min1=INT_MAX;
+        int max1=INT_MIN;
+        int count{0};
+        for(int i=0;i<n;i++){
+            min1=min(min1,nums[i]);
+            max1=max(max1,nums[i]);
+        }
+        for(int i=0;i<n;i++){
+            if(nums[i]>min1 && nums[i]<max1)
+                count++;
+        }
         return count;
+        
     }
 };
