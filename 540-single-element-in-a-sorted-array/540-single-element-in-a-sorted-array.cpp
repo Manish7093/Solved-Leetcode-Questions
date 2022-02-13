@@ -8,7 +8,8 @@ public:
             xr=xr^nums[i];
         }
         return xr;*/
-        int n=nums.size();
+   //TC-O(logn)
+/*        int n=nums.size();
         int start=0,end=n-1;
         while(start<end){
             int mid=start+(end-start)/2;
@@ -24,6 +25,17 @@ public:
                 else
                     end=mid;
             }
+        }
+        return nums[start];*/
+        int n=nums.size();
+        int start=0,end=n-1;
+        while(start<end){
+            int mid=start+(end-start)/2;
+            int temp=mid^1;
+            if(nums[mid]==nums[temp])
+                start=mid+1;
+            else
+                end=mid;
         }
         return nums[start];
     }
