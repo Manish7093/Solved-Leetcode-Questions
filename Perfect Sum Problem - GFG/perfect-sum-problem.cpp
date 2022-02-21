@@ -32,7 +32,7 @@ class Solution{
                     dp[i][j]=((dp[i-1][j-arr[i-1]])+(dp[i-1][j]))%mod;
                    
                 else
-                     dp[i][j]=(dp[i-1][j])%mod;
+                     dp[i][j]=(dp[i-1][j]);
             }
         }
         
