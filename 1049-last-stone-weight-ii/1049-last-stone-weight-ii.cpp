@@ -31,7 +31,7 @@ public:
         int range{0},n=stones.size();
         for(int i=0;i<n;i++ )
             range+=stones[i];
-        vector<int>v=subset(stones,range);
+        vector<int>v=subset(stones,range/2);
         int min1=INT_MAX;
         for(int i=0;i<v.size();i++)
              min1=min(min1,abs(range-2*v[i]));
