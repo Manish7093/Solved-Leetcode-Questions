@@ -9,7 +9,7 @@ public:
         return count;
     }
     int countSubsetSum(vector<int>nums,int n,int sum){
-       int mod=1e9+7;
+    
         int dp[n+1][sum+1];
         for(int i=0;i<n+1;i++){
             for(int j=0;j<sum+1;j++){
@@ -22,9 +22,9 @@ public:
         for(int i=1;i<n+1;i++){
             for(int j=1;j<sum+1;j++){
                 if(nums[i-1]>j ||nums[i-1]==0)
-                    dp[i][j]=(dp[i-1][j])%mod;
+                    dp[i][j]=(dp[i-1][j]);
                 else
-                    dp[i][j]=(dp[i-1][j-nums[i-1]]+dp[i-1][j])%mod;
+                    dp[i][j]=(dp[i-1][j-nums[i-1]]+dp[i-1][j]);
             }
         }
         
