@@ -13,7 +13,7 @@ public:
             }
         }
       
-        for(int j=1;j<amount+1;j++){
+        for(int j=1;j<amount+1;j++){  //Exception in this que in first row 
             if(j%coins[0]==0){
                 dp[1][j]=j/(coins[0]);
             }
@@ -30,6 +30,6 @@ public:
             }
         }
         
-        return dp[n][amount]==INT_MAX-1?-1:dp[n][amount];
+        return dp[n][amount]==INT_MAX-1?-1:dp[n][amount]; 
     }
 };
