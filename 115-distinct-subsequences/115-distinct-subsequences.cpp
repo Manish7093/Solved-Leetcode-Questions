@@ -20,6 +20,6 @@ public:
                     dp[i][j]=dp[i-1][j];
             }
         }
-        return (dp[n][m])%mod;
+        return (dp[n][m]);
     }
 };
