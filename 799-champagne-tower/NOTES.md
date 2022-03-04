@@ -1,13 +1,11 @@
-public double champagneTower(int poured, int query_row, int query_glass) {
-double[] cups = new double[query_row + 1];
-cups[0] = poured;
-for (int i = 0; i < query_row; i++) {
-for (int j = i; j >= 0; j--) {
-double overflow = Math.max (0, cups[j] - 1);
-if (j + 1 <= query_row)
-cups[j + 1] += overflow / 2;
-cups[j] = overflow / 2;
+double champagneTower(int poured, int query_row, int query_glass) {
+vector<double> res(101);
+res[0] = poured;
+for (int row = 1; row <= query_row; row++)
+for (int i = row; i >= 0; i--) {
+res[i] = max(0.0, (res[i] - 1) / 2);
+res[i + 1] += res[i];
 }
+return min(res[query_glass], 1.0);
 }
-return cups[query_glass] >= 1 ? 1 : cups[query_glass];
-}
+};
