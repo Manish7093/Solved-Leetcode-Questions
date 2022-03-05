@@ -29,7 +29,7 @@ public:
         return false;
     }
 };*/
-class Solution {
+/*class Solution {
 public:
     bool isSubsequence(string s, string t) {
           int m=s.length(),n=t.length();
@@ -50,5 +50,23 @@ public:
         }
         return dp[m][n];
       
+    }
+};*/
+class Solution {
+public:
+    bool isSubsequence(string s, string t) {
+        int n=t.length();
+        int m=s.length();
+        if(m==0 && n==0)
+            return true;
+        for(int i=0,j=0;j<m,i<n;i++){
+            if(s[j]==t[i])
+                j++;
+            if(j==m)
+                return true;
+        }
+        
+        
+        return false;
     }
 };
