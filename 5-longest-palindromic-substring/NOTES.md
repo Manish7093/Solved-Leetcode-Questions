@@ -1,33 +1,24 @@
-class Solution {
-public:
-string longestPalindrome(string s) {
-string s1=s;
-reverse(s.begin(),s.end());
-string ans;
-int n=s.size();
-int res=0;
-int dp[n+1][n+1];
-for(int i=0;i<=n;i++){
-for(int j=0;j<=n;j++){
-if(i==0||j==0)
-dp[i][j]=0;
-else if(s[i-1]==s1[j-1]){
-dp[i][j]=dp[i-1][j-1]+1;
+public class Solution {
+private int lo, maxLen;
+​
+public String longestPalindrome(String s) {
+int len = s.length();
+if (len < 2)
+return s;
+for (int i = 0; i < len-1; i++) {
+extendPalindrome(s, i, i);  //assume odd length, try to extend Palindrome as possible
+extendPalindrome(s, i, i+1); //assume even length.
 }
-else
-dp[i][j]=0;
-if(dp[i][j]>res)
-{
-string temp=s.substr(i-dp[i][j],dp[i][j]);
-string rev=temp;
-reverse(rev.begin(),rev.end());
-if(temp==rev){    //check if common substring is palindromic or not
-ans=temp;
-res=dp[i][j];
+return s.substring(lo, lo + maxLen);
 }
+​
+private void extendPalindrome(String s, int j, int k) {
+while (j >= 0 && k < s.length() && s.charAt(j) == s.charAt(k)) {
+j--;
+k++;
 }
+if (maxLen < k - j - 1) {
+lo = j + 1;
+maxLen = k - j - 1;
 }
-}
-return ans;
-}
-}
+}}
