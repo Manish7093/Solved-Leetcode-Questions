@@ -10,14 +10,14 @@ public:
         return true;
     }
     int solve(string &s,int i,int j){
-        if(i>=j ){
+        if(i>=j ||ispalindrome(s,i,j)){
             dp[i][j]=0;
             return 0;
         }
         if(dp[i][j]!=-1)
             return dp[i][j];
-        if(ispalindrome(s,i,j))
-            return 0;
+        /*if(ispalindrome(s,i,j))
+            return 0;*/
         int ans=INT_MAX;
         for(int k=i;k<=j-1;k++){
           if(ispalindrome(s,i,k))
