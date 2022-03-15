@@ -9,7 +9,7 @@ using namespace std;
 
 class Solution{
 public:
-  /*  int dp[1001][1001][2];
+    int dp[1001][1001][2];
     int solve(string s,int i,int j,int istrue){
         if(i>=j){
             if(istrue)
@@ -48,11 +48,11 @@ public:
             }
             
         }
-        dp[i][j][istrue]=ans;
+        dp[i][j][istrue]=ans%1003;
         
-        return ans;
-    }*/
-    int dp[205][205][2];
+        return ans%1003;
+    }
+  /*  int dp[205][205][2];
     int solve(string str, int i, int j, int istrue)
     {
         if(i>j)return 0;
@@ -107,7 +107,7 @@ public:
             dp[i][j][istrue]=ans%1003;
         }
         return ans%1003;
-    }
+    }*/
     
     int countWays(int N, string S){
         memset(dp,-1,sizeof(dp));
