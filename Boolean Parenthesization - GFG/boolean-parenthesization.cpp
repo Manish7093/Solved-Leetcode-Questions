@@ -48,9 +48,8 @@ public:
             }
             
         }
-        dp[i][j][istrue]=ans%1003;
+       return  dp[i][j][istrue]=ans%1003;
         
-        return ans%1003;
     }
   /*  int dp[205][205][2];
     int solve(string str, int i, int j, int istrue)
