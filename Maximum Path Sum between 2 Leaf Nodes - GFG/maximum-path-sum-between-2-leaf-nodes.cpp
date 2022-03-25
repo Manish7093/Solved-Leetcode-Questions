@@ -110,7 +110,8 @@ public:
        return root->data + l;
      int temp=root->data+max(l,r);  
      res= max(res, root->data + l + r);
-     return   temp; //max(root->data + l, root->data + r);
+     
+     return   temp; 
    }
    
    int maxPathSum(Node *root)
