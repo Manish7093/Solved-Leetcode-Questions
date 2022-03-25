@@ -108,9 +108,9 @@ public:
        
      if (!root->right)
        return root->data + l;
-       
+     int temp=root->data+max(l,r);  
      res= max(res, root->data + l + r);
-     return max(root->data + l, root->data + r);
+     return   temp; //max(root->data + l, root->data + r);
    }
    
    int maxPathSum(Node *root)
