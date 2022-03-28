@@ -7,9 +7,9 @@ public:
             int mid=start+(end-start)/2;
             if(nums[mid]==target)
                 return true;
-           if((nums[mid]==nums[start]) && (nums[mid]==nums[end])){
+           if(nums[mid]==nums[start]){
                 ++start;
-                --end;
+                
             }
             else if(nums[mid]>=nums[start]){
                 if(target>=nums[start] && target<=nums[mid])
