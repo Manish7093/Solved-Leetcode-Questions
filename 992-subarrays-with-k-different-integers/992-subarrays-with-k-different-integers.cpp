@@ -5,21 +5,23 @@ public:
     int count{0};
     unordered_map<int,int>mp;
     while(j<nums.size()){
-        int ch=nums[j];
-        if(mp.find(ch)!=mp.end()){
-            int freq=mp[ch];
+      //  int ch=nums[j];
+        if(mp.find(nums[j])!=mp.end()){
+           /* int freq=mp[ch];
             freq++;
-            mp[ch]=freq;
+            mp[ch]=freq;*/
+            mp[nums[j]]++;
         }
         else{
-            mp[ch]=1;
+            mp[nums[j]]=1;
         }
      if(mp.size()>k){
             while(mp.size()>k && i<nums.size()){
                 if(mp.find(nums[i])!=mp.end()){
-                    int freq=mp[nums[i]];
+                 /*   int freq=mp[nums[i]];
                     freq--;
-                    mp[nums[i]]=freq;
+                    mp[nums[i]]=freq;*/
+                    mp[nums[i]]--;
                 }
                 if(mp[nums[i]]==0){
                     mp.erase(nums[i]);
