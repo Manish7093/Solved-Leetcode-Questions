@@ -6,7 +6,7 @@ public:
         sort(nums.begin(),nums.end());
         nums.erase(unique(begin(nums),end(nums)),end(nums));
         while(j<nums.size()){
-            while((nums[i]+n-1)<nums[j]) i++;
+            while(nums[j]-nums[i]>n-1) i++;
             ans=max(ans,j-i+1);
             j++;
         }
