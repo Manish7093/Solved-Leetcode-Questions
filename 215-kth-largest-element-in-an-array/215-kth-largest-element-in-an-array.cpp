@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int partition(vector<int>&nums,int left,int right){
+   /* int partition(vector<int>&nums,int left,int right){
         int pivot=nums[left],l=left+1,r=right;
         while(l<=r){
             if(pivot>nums[l] && pivot<nums[r]){
@@ -12,7 +12,7 @@ public:
         }
         swap(nums[left],nums[r]);
         return r;
-    }
+    }*/
     int findKthLargest(vector<int>& nums, int k) {
        /* priority_queue<int,vector<int>,greater<int>> minheap;
         for(int i=0;i<nums.size();i++){
@@ -22,7 +22,7 @@ public:
         }
         return minheap.top();*/
         //Using Quick select
-        int left=0,right=nums.size()-1,kth;
+      /*  int left=0,right=nums.size()-1,kth;
         while(true){
             int idx=partition(nums,left,right);
             if(idx==k-1){
@@ -35,6 +35,11 @@ public:
                 right=idx-1;
             }
         }
-        return kth;
+        return kth;*/
+        
+        //Using sorting 
+        sort(nums.begin(),nums.end());
+        int n=nums.size();
+        return nums[n-k];
     }
 };
