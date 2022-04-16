@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<int> topKFrequent(vector<int>& nums, int k) {
-        unordered_map<int,int> map;
+    /*    unordered_map<int,int> map;
         for(int num : nums){
             map[num]++;
         }
@@ -16,7 +16,21 @@ public:
                 pq.pop();
             }
         }
+        return res;*/
+        unordered_map<int,int>mp;
+        vector<int>res;
+        for(int i=0;i<nums.size();i++)
+            mp[nums[i]]++;
+        priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>>minheap;
+        for(auto it=mp.begin();it!=mp.end();it++){
+            minheap.push({it->second,it->first});
+            if(minheap.size()>k)
+                minheap.pop();
+        }
+        while(minheap.size()>0){
+            res.push_back(minheap.top().second);
+            minheap.pop();
+        }
         return res;
-        
     }
 };
