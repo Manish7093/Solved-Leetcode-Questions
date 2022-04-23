@@ -1,4 +1,4 @@
-class Solution {
+/*class Solution {
 public:
        void backtrack(vector<int>&nums,vector<vector<int>>&res,int i){
         if(i==nums.size())
@@ -14,8 +14,32 @@ public:
         }
     }
     vector<vector<int>> permuteUnique(vector<int>& nums) {
-         vector<vector<int>>res;
+        vector<vector<int>>res;
+        backtrack(nums,res,0);
+        return res;
+    }
+};*/
+
+
+class Solution {
+public:
+       void backtrack(vector<int>nums,vector<vector<int>>&res,int i){
+        if(i==nums.size())
+        { res.push_back(nums); return;}
+        for(int j=i;j<nums.size();j++){
+            if(i!=j && nums[i]==nums[j])
+                continue;
+            swap(nums[i],nums[j]);
+            backtrack(nums,res,i+1);
+           //swap(nums[i],nums[j]);
+        }
+    }
+    vector<vector<int>> permuteUnique(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        vector<vector<int>>res;
         backtrack(nums,res,0);
         return res;
     }
 };
+
+
