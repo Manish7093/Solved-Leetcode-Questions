@@ -1,45 +1,30 @@
-/*class Solution {
-public:
-       void backtrack(vector<int>&nums,vector<vector<int>>&res,int i){
-        if(i==nums.size())
-        { res.push_back(nums); return;}
-           unordered_set<int>set;
-        for(int j=i;j<nums.size();j++){
-            if(set.count(nums[j])==1)
-                continue;
-            set.insert(nums[j]);
-            swap(nums[i],nums[j]);
-            backtrack(nums,res,i+1);
-           swap(nums[i],nums[j]);
-        }
-    }
-    vector<vector<int>> permuteUnique(vector<int>& nums) {
-        vector<vector<int>>res;
-        backtrack(nums,res,0);
-        return res;
-    }
-};*/
-
-
 class Solution {
-public:
-       void backtrack(vector<int>nums,vector<vector<int>>&res,int i){
-        if(i==nums.size())
-        { res.push_back(nums); return;}
-        for(int j=i;j<nums.size();j++){
-            if(i!=j && nums[i]==nums[j])
-                continue;
-            swap(nums[i],nums[j]);
-            backtrack(nums,res,i+1);
-           //swap(nums[i],nums[j]);
+private:
+    void solve(vector<int>& nums,vector<vector<int>> &ans,vector<int> t){
+        if(t.size()==nums.size()){
+            ans.push_back(t);
+            return ;
+        }
+        
+        for(int j=0;j<nums.size();j++){
+            if(nums[j]!=11){
+			// The difference between the upper code and this code
+			
+            if(j>0 && nums[j]==nums[j-1]) continue;       // skip the element which has already been included
+            int i=nums[j];
+            nums[j]=11;
+            t.push_back(i);
+            solve(nums,ans,t);
+            t.pop_back();
+            nums[j]=i;
+            }
         }
     }
+public:
     vector<vector<int>> permuteUnique(vector<int>& nums) {
-        sort(nums.begin(),nums.end());
-        vector<vector<int>>res;
-        backtrack(nums,res,0);
-        return res;
+        sort(nums.begin(),nums.end());          // sort the givern nums vector to check the consecutive elements
+        vector<vector<int>> ans;
+        solve(nums,ans,{});
+        return ans;
     }
 };
-
-
